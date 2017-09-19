@@ -1,0 +1,118 @@
+{
+  "nextEntryId": 22,
+  "nodes": [
+    {
+      "id": "0",
+      "name": "Char",
+      "type": null,
+      "children": [
+        {
+          "id": "1",
+          "name": "M",
+          "type": null,
+          "children": [
+            {
+              "id": "3",
+              "name": "Body",
+              "type": null,
+              "children": [
+                {
+                  "id": "5",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "8",
+              "name": "Hair",
+              "type": null,
+              "children": [
+                {
+                  "id": "9",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "10",
+              "name": "Torso",
+              "type": null,
+              "children": [
+                {
+                  "id": "11",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "12",
+              "name": "Legs",
+              "type": null,
+              "children": [
+                {
+                  "id": "13",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "14",
+              "name": "Weapons",
+              "type": null,
+              "children": [
+                {
+                  "id": "15",
+                  "name": "0",
+                  "type": "sprite"
+                },
+                {
+                  "id": "16",
+                  "name": "1",
+                  "type": "sprite"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "F",
+          "type": null,
+          "children": [
+            {
+              "id": "6",
+              "name": "Body",
+              "type": null,
+              "children": [
+                {
+                  "id": "7",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "17",
+          "name": "Prefab1",
+          "type": "scene"
+        },
+        {
+          "id": "21",
+          "name": "Char",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "name": "Teste",
+      "type": "scene"
+    }
+  ]
+}
