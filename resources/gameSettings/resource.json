@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "startupSceneId": "18",
   "framesPerSecond": 60,
-  "ratioNumerator": 4,
-  "ratioDenominator": 3,
+  "ratioNumerator": 16,
+  "ratioDenominator": 9,
   "customLayers": []
 }

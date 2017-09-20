@@ -24,12 +24,20 @@
             "farClippingPlane": 1000
           },
           "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "CameraBehavior",
+            "propertyValues": {}
+          },
+          "id": "2"
         }
       ],
       "position": {
-        "x": 0,
-        "y": 0,
-        "z": 10
+        "x": 18.33,
+        "y": 30.5,
+        "z": 20
       },
       "orientation": {
         "x": 0,
@@ -52,8 +60,8 @@
       "children": [],
       "components": [],
       "position": {
-        "x": 0,
-        "y": 0,
+        "x": 18,
+        "y": 30,
         "z": 2
       },
       "orientation": {
@@ -72,6 +80,105 @@
       "prefab": {
         "sceneAssetId": "17"
       }
+    },
+    {
+      "id": "2",
+      "name": "Map",
+      "children": [],
+      "components": [
+        {
+          "type": "TileMapRenderer",
+          "config": {
+            "formatVersion": 1,
+            "tileMapAssetId": "26",
+            "tileSetAssetId": null,
+            "castShadow": false,
+            "receiveShadow": false,
+            "materialType": "basic",
+            "shaderAssetId": null
+          },
+          "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "MapBehavior",
+            "propertyValues": {}
+          },
+          "id": "1"
+        }
+      ],
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": -1
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
+      "id": "3",
+      "name": "Mouse",
+      "children": [],
+      "components": [
+        {
+          "type": "SpriteRenderer",
+          "config": {
+            "formatVersion": 1,
+            "spriteAssetId": "29",
+            "animationId": "0",
+            "horizontalFlip": false,
+            "verticalFlip": false,
+            "castShadow": false,
+            "receiveShadow": false,
+            "color": "ffffff",
+            "overrideOpacity": false,
+            "opacity": null,
+            "materialType": "basic",
+            "shaderAssetId": null
+          },
+          "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "MouseBehavior",
+            "propertyValues": {}
+          },
+          "id": "1"
+        }
+      ],
+      "position": {
+        "x": 5,
+        "y": 23,
+        "z": 9
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
     }
   ]
 }

@@ -28,8 +28,60 @@
         {
           "name": "atack",
           "type": "boolean"
+        },
+        {
+          "name": "position",
+          "type": "Sup.Math.Vector2"
         }
       ]
+    },
+    "MouseBehavior": {
+      "scriptId": "30",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "position",
+          "type": "Sup.Math.Vector3"
+        },
+        {
+          "name": "timer",
+          "type": "number"
+        },
+        {
+          "name": "cordToWalk",
+          "type": "Sup.Math.Vector2"
+        },
+        {
+          "name": "makeWalk",
+          "type": "boolean"
+        }
+      ]
+    },
+    "CameraBehavior": {
+      "scriptId": "33",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "position",
+          "type": "Sup.Math.Vector2"
+        },
+        {
+          "name": "cameraWidth",
+          "type": "number"
+        },
+        {
+          "name": "cameraHeight",
+          "type": "number"
+        }
+      ]
+    },
+    "MapBehavior": {
+      "scriptId": "34",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
     }
   }
 }

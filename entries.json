@@ -1,6 +1,11 @@
 {
-  "nextEntryId": 22,
+  "nextEntryId": 35,
   "nodes": [
+    {
+      "id": "32",
+      "name": "Game",
+      "type": "script"
+    },
     {
       "id": "0",
       "name": "Char",
@@ -113,6 +118,64 @@
       "id": "18",
       "name": "Teste",
       "type": "scene"
+    },
+    {
+      "id": "30",
+      "name": "Mouse",
+      "type": "script"
+    },
+    {
+      "id": "22",
+      "name": "Map",
+      "type": null,
+      "children": [
+        {
+          "id": "23",
+          "name": "Map1",
+          "type": null,
+          "children": [
+            {
+              "id": "26",
+              "name": "Map",
+              "type": "tileMap"
+            }
+          ]
+        },
+        {
+          "id": "25",
+          "name": "Tile Set",
+          "type": "tileSet"
+        },
+        {
+          "id": "34",
+          "name": "Map",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "name": "Misc",
+      "type": null,
+      "children": [
+        {
+          "id": "28",
+          "name": "Marker",
+          "type": null,
+          "children": [
+            {
+              "id": "29",
+              "name": "Marker1",
+              "type": "sprite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "name": "Camera",
+      "type": "script"
     }
   ]
 }
