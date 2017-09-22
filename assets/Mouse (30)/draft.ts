@@ -54,7 +54,7 @@ class MouseBehavior extends Sup.Behavior {
       } else {
         distY = Math.abs(pY - cY);
       }      
-      Sup.log(cX +" "+ pX+"\nDistX :"+distX+"\nDistY :"+distY);
+      // Sup.log(cX +" "+ pX+"\nDistX :"+distX+"\nDistY :"+distY);
       //TODO set Direction to look
       if(distX > distY){
         if(pX < cX){
