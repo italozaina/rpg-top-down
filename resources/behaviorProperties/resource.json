@@ -86,6 +86,17 @@
       "line": 0,
       "parentBehavior": null,
       "properties": []
+    },
+    "TeleportBehavior": {
+      "scriptId": "44",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "target",
+          "type": "string"
+        }
+      ]
     }
   }
 }

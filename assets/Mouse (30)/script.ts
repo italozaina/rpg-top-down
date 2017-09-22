@@ -11,6 +11,7 @@ class MouseBehavior extends Sup.Behavior {
     Sup.log( Sup.Input.getScreenSize());
     this.makeWalkX = false;
     this.makeWalkY = false;
+    this.actor.setVisible(false);
   }
 
   update() {
@@ -30,10 +31,10 @@ class MouseBehavior extends Sup.Behavior {
     this.actor.setLocalPosition(Math.floor(position.x/10),Math.floor(position.y/10));    
     
     //TODO Click to walk
-    if(Sup.Input.isMouseButtonDown(0)){
+    if(Sup.Input.isMouseButtonDown(0)){ 
+      this.actor.setVisible(true);
       this.cordToWalk = this.position.toVector2().multiplyScalar(10);
-      Sup.log("      -----     ");      
-            
+      // Sup.log("      -----     ");                  
       // Sup.log("X: ",Math.floor(this.cordToWalk.x / 10));
       // Sup.log("Y: ",Math.floor(this.cordToWalk.y / 10));
       let pX = Math.floor(this.cordToWalk.x / 10);
@@ -54,7 +55,7 @@ class MouseBehavior extends Sup.Behavior {
       } else {
         distY = Math.abs(pY - cY);
       }      
-      Sup.log(cX +" "+ pX+"\nDistX :"+distX+"\nDistY :"+distY);
+      // Sup.log(cX +" "+ pX+"\nDistX :"+distX+"\nDistY :"+distY);
       //TODO set Direction to look
       if(distX > distY){
         if(pX < cX){
@@ -109,6 +110,7 @@ class MouseBehavior extends Sup.Behavior {
     if(!this.makeWalkX && !this.makeWalkY){
       Game.player.idle = true;
       Game.player.walk = false;      
+      this.actor.setVisible(false);      
     }
     
     // if(this.timer === 0){

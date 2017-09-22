@@ -1,10 +1,22 @@
 {
-  "nextEntryId": 35,
+  "nextEntryId": 45,
   "nodes": [
     {
-      "id": "32",
-      "name": "Game",
-      "type": "script"
+      "id": "18",
+      "name": "Teste",
+      "type": "scene"
+    },
+    {
+      "id": "40",
+      "name": "HUD",
+      "type": null,
+      "children": [
+        {
+          "id": "42",
+          "name": "Prefab",
+          "type": "scene"
+        }
+      ]
     },
     {
       "id": "0",
@@ -115,18 +127,8 @@
       ]
     },
     {
-      "id": "18",
-      "name": "Teste",
-      "type": "scene"
-    },
-    {
-      "id": "30",
-      "name": "Mouse",
-      "type": "script"
-    },
-    {
       "id": "22",
-      "name": "Map",
+      "name": "Maps",
       "type": null,
       "children": [
         {
@@ -135,7 +137,29 @@
           "type": null,
           "children": [
             {
+              "id": "41",
+              "name": "Prefab",
+              "type": "scene"
+            },
+            {
               "id": "26",
+              "name": "Map",
+              "type": "tileMap"
+            }
+          ]
+        },
+        {
+          "id": "35",
+          "name": "Map2",
+          "type": null,
+          "children": [
+            {
+              "id": "43",
+              "name": "Prefab",
+              "type": "scene"
+            },
+            {
+              "id": "36",
               "name": "Map",
               "type": "tileMap"
             }
@@ -169,12 +193,44 @@
               "type": "sprite"
             }
           ]
+        },
+        {
+          "id": "37",
+          "name": "Fade",
+          "type": null,
+          "children": [
+            {
+              "id": "38",
+              "name": "Black Screen",
+              "type": "sprite"
+            },
+            {
+              "id": "39",
+              "name": "Fade Manager",
+              "type": "script"
+            }
+          ]
         }
       ]
     },
     {
       "id": "33",
       "name": "Camera",
+      "type": "script"
+    },
+    {
+      "id": "30",
+      "name": "Mouse",
+      "type": "script"
+    },
+    {
+      "id": "44",
+      "name": "Teleport",
+      "type": "script"
+    },
+    {
+      "id": "32",
+      "name": "Game",
       "type": "script"
     }
   ]
