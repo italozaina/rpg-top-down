@@ -62,7 +62,24 @@ class CharBehavior extends Sup.Behavior {
         this.typeWeapon++;
       else this.typeWeapon = 0;
     }    
-          
+
+    if(Sup.Input.wasKeyJustPressed("F")){
+      const dialog = Sup.getActor("TestFrame");
+      if(dialog.getVisible()){
+        dialog.setVisible(false);
+      } else {
+        dialog.setVisible(true); 
+      }      
+    }    
+    
+    if(Sup.Input.wasKeyJustPressed("I")){
+      const inventory = Sup.getActor("Inventory");
+      if(inventory.getVisible()){
+        inventory.setVisible(false);
+      } else {
+        inventory.setVisible(true); 
+      }      
+    }    
     
     if(Sup.Input.wasKeyJustReleased("DOWN") 
         || Sup.Input.wasKeyJustReleased("UP")

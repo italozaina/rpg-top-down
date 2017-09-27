@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 47,
+  "nextEntryId": 49,
   "nodes": [
     {
       "id": "18",
@@ -15,6 +15,18 @@
           "id": "42",
           "name": "Prefab",
           "type": "scene"
+        },
+        {
+          "id": "47",
+          "name": "Inventory",
+          "type": null,
+          "children": [
+            {
+              "id": "48",
+              "name": "Prefab",
+              "type": "scene"
+            }
+          ]
         }
       ]
     },
