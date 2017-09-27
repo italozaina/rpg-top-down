@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 45,
+  "nextEntryId": 47,
   "nodes": [
     {
       "id": "18",
@@ -210,6 +210,18 @@
               "type": "script"
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "45",
+      "name": "Dialog",
+      "type": null,
+      "children": [
+        {
+          "id": "46",
+          "name": "Frame",
+          "type": "sprite"
         }
       ]
     },
