@@ -140,6 +140,12 @@
           "type": "Sup.Math.Vector2"
         }
       ]
+    },
+    "MainMenuBehavior": {
+      "scriptId": "74",
+      "line": 13,
+      "parentBehavior": null,
+      "properties": []
     }
   }
 }

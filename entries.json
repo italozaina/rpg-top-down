@@ -1,10 +1,37 @@
 {
-  "nextEntryId": 68,
+  "nextEntryId": 77,
   "nodes": [
     {
       "id": "18",
       "name": "Teste",
       "type": "scene"
+    },
+    {
+      "id": "68",
+      "name": "Main menu",
+      "type": null,
+      "children": [
+        {
+          "id": "71",
+          "name": "Prefab",
+          "type": "scene"
+        },
+        {
+          "id": "74",
+          "name": "MainMenu",
+          "type": "script"
+        },
+        {
+          "id": "75",
+          "name": "Menu_frame",
+          "type": "sprite"
+        },
+        {
+          "id": "76",
+          "name": "Menu_selector",
+          "type": "sprite"
+        }
+      ]
     },
     {
       "id": "40",
@@ -307,6 +334,18 @@
           "id": "34",
           "name": "Map",
           "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "69",
+      "name": "Fonts",
+      "type": null,
+      "children": [
+        {
+          "id": "70",
+          "name": "Menu",
+          "type": "font"
         }
       ]
     },

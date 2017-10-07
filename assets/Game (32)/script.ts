@@ -46,5 +46,6 @@ namespace Game {
   }  
 }
 
-Sup.loadScene("HUD/Prefab");
-Game.loadMap("Map1");
+Sup.loadScene("Main menu/Prefab");
+// Sup.loadScene("HUD/Prefab");
+// Game.loadMap("Map1");
