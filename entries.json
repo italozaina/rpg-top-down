@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 49,
+  "nextEntryId": 68,
   "nodes": [
     {
       "id": "18",
@@ -25,6 +25,45 @@
               "id": "48",
               "name": "Prefab",
               "type": "scene"
+            },
+            {
+              "id": "49",
+              "name": "Frame",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "50",
+          "name": "Menu",
+          "type": null,
+          "children": [
+            {
+              "id": "51",
+              "name": "Prefab",
+              "type": "scene"
+            },
+            {
+              "id": "52",
+              "name": "Frame",
+              "type": "sprite"
+            }
+          ]
+        },
+        {
+          "id": "45",
+          "name": "Dialog",
+          "type": null,
+          "children": [
+            {
+              "id": "53",
+              "name": "Prefab",
+              "type": "scene"
+            },
+            {
+              "id": "46",
+              "name": "Frame",
+              "type": "sprite"
             }
           ]
         }
@@ -89,6 +128,18 @@
               ]
             },
             {
+              "id": "54",
+              "name": "Feet",
+              "type": null,
+              "children": [
+                {
+                  "id": "60",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
               "id": "14",
               "name": "Weapons",
               "type": null,
@@ -123,17 +174,87 @@
                   "type": "sprite"
                 }
               ]
+            },
+            {
+              "id": "55",
+              "name": "Hair",
+              "type": null,
+              "children": [
+                {
+                  "id": "61",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "56",
+              "name": "Torso",
+              "type": null,
+              "children": [
+                {
+                  "id": "62",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "57",
+              "name": "Legs",
+              "type": null,
+              "children": [
+                {
+                  "id": "63",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "58",
+              "name": "Feet",
+              "type": null,
+              "children": [
+                {
+                  "id": "64",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
+            },
+            {
+              "id": "59",
+              "name": "Weapons",
+              "type": null,
+              "children": [
+                {
+                  "id": "65",
+                  "name": "0",
+                  "type": "sprite"
+                }
+              ]
             }
           ]
         },
         {
           "id": "17",
-          "name": "Prefab1",
+          "name": "Prefab_Player_1",
+          "type": "scene"
+        },
+        {
+          "id": "66",
+          "name": "Prefab_Npc_1",
           "type": "scene"
         },
         {
           "id": "21",
-          "name": "Char",
+          "name": "Player",
+          "type": "script"
+        },
+        {
+          "id": "67",
+          "name": "Npc",
           "type": "script"
         }
       ]
@@ -222,18 +343,6 @@
               "type": "script"
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "45",
-      "name": "Dialog",
-      "type": null,
-      "children": [
-        {
-          "id": "46",
-          "name": "Frame",
-          "type": "sprite"
         }
       ]
     },

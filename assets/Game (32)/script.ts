@@ -1,5 +1,5 @@
 namespace Game {
-  export let player: CharBehavior;
+  export let player: PlayerBehavior;
   export let mouse: MouseBehavior;
   export let mapWidth: number;
   export let mapHeight: number;  

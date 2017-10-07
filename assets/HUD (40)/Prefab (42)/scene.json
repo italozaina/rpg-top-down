@@ -85,50 +85,6 @@
       "name": "Camera",
       "children": [
         {
-          "id": "3",
-          "name": "TestFrame",
-          "children": [],
-          "components": [
-            {
-              "type": "SpriteRenderer",
-              "config": {
-                "formatVersion": 1,
-                "spriteAssetId": "46",
-                "animationId": "0",
-                "horizontalFlip": false,
-                "verticalFlip": false,
-                "castShadow": false,
-                "receiveShadow": false,
-                "color": "ffffff",
-                "overrideOpacity": false,
-                "opacity": null,
-                "materialType": "basic",
-                "shaderAssetId": null
-              },
-              "id": "0"
-            }
-          ],
-          "position": {
-            "x": 0,
-            "y": -5.478,
-            "z": -5
-          },
-          "orientation": {
-            "x": 0,
-            "y": 0,
-            "z": 0,
-            "w": 1
-          },
-          "scale": {
-            "x": 0.9869999885559082,
-            "y": 1,
-            "z": 1
-          },
-          "visible": false,
-          "layer": 0,
-          "prefab": null
-        },
-        {
           "id": "4",
           "name": "Inventory",
           "children": [],
@@ -153,6 +109,60 @@
           "layer": 0,
           "prefab": {
             "sceneAssetId": "48"
+          }
+        },
+        {
+          "id": "5",
+          "name": "Menu",
+          "children": [],
+          "components": [],
+          "position": {
+            "x": -10.83,
+            "y": 3.5,
+            "z": -3
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "visible": false,
+          "layer": 0,
+          "prefab": {
+            "sceneAssetId": "51"
+          }
+        },
+        {
+          "id": "6",
+          "name": "Dialog",
+          "children": [],
+          "components": [],
+          "position": {
+            "x": 0,
+            "y": -5.478,
+            "z": -5
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "visible": false,
+          "layer": 0,
+          "prefab": {
+            "sceneAssetId": "53"
           }
         }
       ],

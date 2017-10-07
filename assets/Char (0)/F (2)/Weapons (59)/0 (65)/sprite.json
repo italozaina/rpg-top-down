@@ -1,0 +1,205 @@
+{
+  "formatVersion": 3,
+  "maps": [
+    "map"
+  ],
+  "filtering": "pixelated",
+  "wrapping": "clampToEdge",
+  "pixelsPerUnit": 32,
+  "framesPerSecond": 9,
+  "opacity": null,
+  "alphaTest": 0.1,
+  "frameOrder": "rows",
+  "grid": {
+    "width": 64,
+    "height": 64
+  },
+  "origin": {
+    "x": 0.25,
+    "y": 0
+  },
+  "animations": [
+    {
+      "id": "0",
+      "name": "IdleU",
+      "startFrameIndex": 104,
+      "endFrameIndex": 104,
+      "speed": 1
+    },
+    {
+      "id": "1",
+      "name": "IdleL",
+      "startFrameIndex": 117,
+      "endFrameIndex": 117,
+      "speed": 1
+    },
+    {
+      "id": "2",
+      "name": "IdleD",
+      "startFrameIndex": 130,
+      "endFrameIndex": 130,
+      "speed": 1
+    },
+    {
+      "id": "3",
+      "name": "IdleR",
+      "startFrameIndex": 143,
+      "endFrameIndex": 143,
+      "speed": 1
+    },
+    {
+      "id": "4",
+      "name": "WalkU",
+      "startFrameIndex": 105,
+      "endFrameIndex": 112,
+      "speed": 1
+    },
+    {
+      "id": "5",
+      "name": "WalkL",
+      "startFrameIndex": 118,
+      "endFrameIndex": 125,
+      "speed": 1
+    },
+    {
+      "id": "6",
+      "name": "WalkD",
+      "startFrameIndex": 131,
+      "endFrameIndex": 138,
+      "speed": 1
+    },
+    {
+      "id": "7",
+      "name": "WalkR",
+      "startFrameIndex": 144,
+      "endFrameIndex": 151,
+      "speed": 1
+    },
+    {
+      "id": "8",
+      "name": "SlashU",
+      "startFrameIndex": 156,
+      "endFrameIndex": 161,
+      "speed": 1
+    },
+    {
+      "id": "9",
+      "name": "SlashL",
+      "startFrameIndex": 169,
+      "endFrameIndex": 174,
+      "speed": 1
+    },
+    {
+      "id": "10",
+      "name": "SlashD",
+      "startFrameIndex": 182,
+      "endFrameIndex": 187,
+      "speed": 1
+    },
+    {
+      "id": "11",
+      "name": "SlashR",
+      "startFrameIndex": 195,
+      "endFrameIndex": 200,
+      "speed": 1
+    },
+    {
+      "id": "16",
+      "name": "ShootArrowU",
+      "startFrameIndex": 208,
+      "endFrameIndex": 220,
+      "speed": 1
+    },
+    {
+      "id": "17",
+      "name": "ShootArrowL",
+      "startFrameIndex": 221,
+      "endFrameIndex": 233,
+      "speed": 1
+    },
+    {
+      "id": "18",
+      "name": "ShootArrowD",
+      "startFrameIndex": 234,
+      "endFrameIndex": 246,
+      "speed": 1
+    },
+    {
+      "id": "19",
+      "name": "ShootArrowR",
+      "startFrameIndex": 247,
+      "endFrameIndex": 259,
+      "speed": 1
+    },
+    {
+      "id": "20",
+      "name": "CastMagicU",
+      "startFrameIndex": 0,
+      "endFrameIndex": 6,
+      "speed": 1
+    },
+    {
+      "id": "21",
+      "name": "CastMagicL",
+      "startFrameIndex": 13,
+      "endFrameIndex": 19,
+      "speed": 1
+    },
+    {
+      "id": "22",
+      "name": "CastMagicD",
+      "startFrameIndex": 26,
+      "endFrameIndex": 32,
+      "speed": 1
+    },
+    {
+      "id": "23",
+      "name": "CastMagicR",
+      "startFrameIndex": 39,
+      "endFrameIndex": 45,
+      "speed": 1
+    },
+    {
+      "id": "24",
+      "name": "SpikeU",
+      "startFrameIndex": 52,
+      "endFrameIndex": 59,
+      "speed": 1
+    },
+    {
+      "id": "25",
+      "name": "SpikeL",
+      "startFrameIndex": 65,
+      "endFrameIndex": 72,
+      "speed": 1
+    },
+    {
+      "id": "26",
+      "name": "SpikeD",
+      "startFrameIndex": 78,
+      "endFrameIndex": 85,
+      "speed": 1
+    },
+    {
+      "id": "27",
+      "name": "SpikeR",
+      "startFrameIndex": 91,
+      "endFrameIndex": 98,
+      "speed": 1
+    },
+    {
+      "id": "28",
+      "name": "Die",
+      "startFrameIndex": 260,
+      "endFrameIndex": 265,
+      "speed": 1
+    }
+  ],
+  "mapSlots": {
+    "map": "map",
+    "light": null,
+    "specular": null,
+    "alpha": null,
+    "normal": null
+  }
+}

@@ -158,6 +158,33 @@
           "visible": true,
           "layer": 0,
           "prefab": null
+        },
+        {
+          "id": "7",
+          "name": "Npc",
+          "children": [],
+          "components": [],
+          "position": {
+            "x": 15,
+            "y": 20,
+            "z": 2
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": {
+            "sceneAssetId": "66"
+          }
         }
       ],
       "components": [],

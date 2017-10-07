@@ -10,7 +10,7 @@
           "type": "SpriteRenderer",
           "config": {
             "formatVersion": 1,
-            "spriteAssetId": "49",
+            "spriteAssetId": "46",
             "animationId": null,
             "horizontalFlip": false,
             "verticalFlip": false,
@@ -38,7 +38,7 @@
       },
       "scale": {
         "x": 0.987,
-        "y": 0.937,
+        "y": 1,
         "z": 1
       },
       "visible": true,

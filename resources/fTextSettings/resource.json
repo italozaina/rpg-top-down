@@ -1,0 +1,8 @@
+{
+  "styleActiveLine": true,
+  "autoCloseBrackets": true,
+  "showTrailingSpace": true,
+  "matchTags": true,
+  "highlightSelectionMatches": true,
+  "lint": true
+}

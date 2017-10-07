@@ -1,40 +1,5 @@
 {
   "behaviors": {
-    "CharBehavior": {
-      "scriptId": "21",
-      "line": 0,
-      "parentBehavior": null,
-      "properties": [
-        {
-          "name": "direction",
-          "type": "string"
-        },
-        {
-          "name": "typeWeapon",
-          "type": "number"
-        },
-        {
-          "name": "idle",
-          "type": "boolean"
-        },
-        {
-          "name": "walk",
-          "type": "boolean"
-        },
-        {
-          "name": "die",
-          "type": "boolean"
-        },
-        {
-          "name": "atack",
-          "type": "boolean"
-        },
-        {
-          "name": "position",
-          "type": "Sup.Math.Vector2"
-        }
-      ]
-    },
     "MouseBehavior": {
       "scriptId": "30",
       "line": 0,
@@ -95,6 +60,84 @@
         {
           "name": "target",
           "type": "string"
+        }
+      ]
+    },
+    "PlayerBehavior": {
+      "scriptId": "21",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "direction",
+          "type": "string"
+        },
+        {
+          "name": "typeWeapon",
+          "type": "number"
+        },
+        {
+          "name": "idle",
+          "type": "boolean"
+        },
+        {
+          "name": "walk",
+          "type": "boolean"
+        },
+        {
+          "name": "die",
+          "type": "boolean"
+        },
+        {
+          "name": "atack",
+          "type": "boolean"
+        },
+        {
+          "name": "frameInteraction",
+          "type": "boolean"
+        },
+        {
+          "name": "position",
+          "type": "Sup.Math.Vector2"
+        }
+      ]
+    },
+    "NpcBehavior": {
+      "scriptId": "67",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "direction",
+          "type": "string"
+        },
+        {
+          "name": "typeWeapon",
+          "type": "number"
+        },
+        {
+          "name": "idle",
+          "type": "boolean"
+        },
+        {
+          "name": "walk",
+          "type": "boolean"
+        },
+        {
+          "name": "die",
+          "type": "boolean"
+        },
+        {
+          "name": "atack",
+          "type": "boolean"
+        },
+        {
+          "name": "timer",
+          "type": "number"
+        },
+        {
+          "name": "position",
+          "type": "Sup.Math.Vector2"
         }
       ]
     }

@@ -1,12 +1,13 @@
-class CharBehavior extends Sup.Behavior {
+class PlayerBehavior extends Sup.Behavior {
   player: Sup.Actor;
   direction: string = "D";
-  typesOfWeapons: string[] = ["ShootArrow","Slash","CastMagic","Spike"]; // Slash, CastMagic, Spike
+  typesOfWeapons: string[] = ["ShootArrow","Slash","CastMagic","Spike"];
   typeWeapon: number = 0;
   idle: boolean = true;
   walk: boolean = false;
   die: boolean;
   atack: boolean;  
+  frameInteraction: boolean;  
   
   position: Sup.Math.Vector2;
   
@@ -15,9 +16,14 @@ class CharBehavior extends Sup.Behavior {
     this.player = this.actor;
     this.atack = false;
     this.position = this.actor.getLocalPosition().toVector2();
+    this.frameInteraction = false;
   }
 
   update() {
+    const dialog = Sup.getActor("Dialog");
+    const menu = Sup.getActor("Menu");
+    const inventory = Sup.getActor("Inventory");
+    
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
 
     this.position = this.actor.getLocalPosition().toVector2();
@@ -63,23 +69,36 @@ class CharBehavior extends Sup.Behavior {
       else this.typeWeapon = 0;
     }    
 
-    if(Sup.Input.wasKeyJustPressed("F")){
-      const dialog = Sup.getActor("TestFrame");
+    if(Sup.Input.wasKeyJustPressed("F") && !inventory.getVisible() && !menu.getVisible()){
+      
       if(dialog.getVisible()){
         dialog.setVisible(false);
+        this.frameInteraction = false;
       } else {
         dialog.setVisible(true); 
+        this.frameInteraction = true;
       }      
     }    
     
-    if(Sup.Input.wasKeyJustPressed("I")){
-      const inventory = Sup.getActor("Inventory");
+    if(Sup.Input.wasKeyJustPressed("I") && !menu.getVisible() && !dialog.getVisible()){      
       if(inventory.getVisible()){
         inventory.setVisible(false);
+        this.frameInteraction = false;
       } else {
-        inventory.setVisible(true); 
+        inventory.setVisible(true);
+        this.frameInteraction = true;
       }      
-    }    
+    }
+    
+    if(Sup.Input.wasKeyJustPressed("ESCAPE") && !dialog.getVisible() && !inventory.getVisible()){      
+      if(menu.getVisible()){
+        menu.setVisible(false);
+        this.frameInteraction = false;
+      } else {
+        menu.setVisible(true); 
+        this.frameInteraction = true;
+      }      
+    }
     
     if(Sup.Input.wasKeyJustReleased("DOWN") 
         || Sup.Input.wasKeyJustReleased("UP")
@@ -121,4 +140,4 @@ class CharBehavior extends Sup.Behavior {
     }    
   }
 }
-Sup.registerBehavior(CharBehavior);
+Sup.registerBehavior(PlayerBehavior);
