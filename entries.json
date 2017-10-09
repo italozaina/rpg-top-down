@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 77,
+  "nextEntryId": 79,
   "nodes": [
     {
       "id": "18",
@@ -29,6 +29,16 @@
         {
           "id": "76",
           "name": "Menu_selector",
+          "type": "sprite"
+        },
+        {
+          "id": "77",
+          "name": "Options_frame",
+          "type": "sprite"
+        },
+        {
+          "id": "78",
+          "name": "Yes-or-No_frame",
           "type": "sprite"
         }
       ]

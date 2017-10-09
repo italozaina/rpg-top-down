@@ -145,7 +145,16 @@
       "scriptId": "74",
       "line": 13,
       "parentBehavior": null,
-      "properties": []
+      "properties": [
+        {
+          "name": "optionsOpened",
+          "type": "boolean"
+        },
+        {
+          "name": "fullScreen",
+          "type": "boolean"
+        }
+      ]
     }
   }
 }
