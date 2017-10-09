@@ -23,6 +23,14 @@
             "shaderAssetId": null
           },
           "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "GameMenuBehavior",
+            "propertyValues": {}
+          },
+          "id": "2"
         }
       ],
       "position": {

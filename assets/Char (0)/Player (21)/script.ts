@@ -32,38 +32,38 @@ class PlayerBehavior extends Sup.Behavior {
 
     velocity.set(0, 0);
     
-    if(Sup.Input.isKeyDown("DOWN")){
+    if(Sup.Input.isKeyDown("DOWN") && !this.frameInteraction){
       this.direction = "D";
       this.idle = false;
       this.walk = true;      
       velocity.y = -0.05;
-    } else if(Sup.Input.isKeyDown("UP")){
+    } else if(Sup.Input.isKeyDown("UP") && !this.frameInteraction){
       this.direction = "U";
       this.idle = false;
       this.walk = true;      
       velocity.y = 0.05;
     } 
-    if(Sup.Input.isKeyDown("LEFT")){
+    if(Sup.Input.isKeyDown("LEFT") && !this.frameInteraction){
       this.direction = "L";
       this.idle = false;
       this.walk = true;
       velocity.x = -0.05;
-    } else if(Sup.Input.isKeyDown("RIGHT")){
+    } else if(Sup.Input.isKeyDown("RIGHT") && !this.frameInteraction){
       this.direction = "R";
       this.idle = false;
       this.walk = true;
       velocity.x = 0.05;
     }
     
-    if(Sup.Input.isKeyDown("X")){
+    if(Sup.Input.isKeyDown("X") && !this.frameInteraction){
       this.atack = true;
     }
 
-    if(Sup.Input.isKeyDown("D")){
+    if(Sup.Input.isKeyDown("D") && !this.frameInteraction){
       this.die = true;
     }    
     
-    if(Sup.Input.wasKeyJustPressed("C")){
+    if(Sup.Input.wasKeyJustPressed("C") && !this.frameInteraction){
       if(this.typeWeapon != 3)
         this.typeWeapon++;
       else this.typeWeapon = 0;
@@ -90,7 +90,7 @@ class PlayerBehavior extends Sup.Behavior {
       }      
     }
     
-    if(Sup.Input.wasKeyJustPressed("ESCAPE") && !dialog.getVisible() && !inventory.getVisible()){      
+    if(Sup.Input.wasKeyJustPressed("Z") && !dialog.getVisible() && !inventory.getVisible()){      
       if(menu.getVisible()){
         menu.setVisible(false);
         this.frameInteraction = false;
@@ -100,13 +100,13 @@ class PlayerBehavior extends Sup.Behavior {
       }      
     }
     
-    if(Sup.Input.wasKeyJustReleased("DOWN") 
+    if((Sup.Input.wasKeyJustReleased("DOWN") 
         || Sup.Input.wasKeyJustReleased("UP")
         || Sup.Input.wasKeyJustReleased("LEFT")
         || Sup.Input.wasKeyJustReleased("RIGHT")
         || Sup.Input.wasKeyJustReleased("X")
         || Sup.Input.wasKeyJustReleased("C")
-        || Sup.Input.wasKeyJustReleased("D")){
+        || Sup.Input.wasKeyJustReleased("D")) && !this.frameInteraction){
       this.idle = true;
       this.walk = false;
       this.atack = false;

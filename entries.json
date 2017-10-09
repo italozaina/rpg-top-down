@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 81,
+  "nextEntryId": 83,
   "nodes": [
     {
       "id": "18",
@@ -89,6 +89,11 @@
               "id": "52",
               "name": "Frame",
               "type": "sprite"
+            },
+            {
+              "id": "81",
+              "name": "GameMenu",
+              "type": "script"
             }
           ]
         },
@@ -360,6 +365,11 @@
         {
           "id": "70",
           "name": "Menu",
+          "type": "font"
+        },
+        {
+          "id": "82",
+          "name": "Dialog",
           "type": "font"
         }
       ]

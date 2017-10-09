@@ -155,6 +155,12 @@
           "type": "boolean"
         }
       ]
+    },
+    "GameMenuBehavior": {
+      "scriptId": "81",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
     }
   }
 }

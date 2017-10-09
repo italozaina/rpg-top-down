@@ -19,7 +19,7 @@ class MainMenuBehavior extends Sup.Behavior {
   optionsActor: Sup.Actor;
   optionsOpened: boolean;
   fullScreen: boolean;
-  awake() {
+  awake() {    
     this.mainActor = Sup.getActor("Main_frame");
     this.optionsActor = Sup.getActor("Options_frame");
     this.fullScreen = false;
@@ -69,44 +69,9 @@ class MainMenuBehavior extends Sup.Behavior {
 
   update() {
     this.optionsOpened = this.optionsActor.getVisible();
-    if(Sup.Input.wasKeyJustPressed("RETURN") || Sup.Input.wasKeyJustPressed("SPACE")){
-      // Start the game
-      if(this.choices[0].active && !this.optionsOpened){
-        Sup.loadScene("HUD/Prefab");
-        Game.loadMap("Map1");        
-      }
-      
-      // Open options
-      if(this.choices[2].active && !this.optionsOpened){
-        this.optionsActor.setVisible(true);
-        let selected = this.optionsActor.getChildren()[0];
-        this.selector.setLocalX(this.optionsActor.getLocalX());
-        this.selector.setLocalY(this.optionsActor.getLocalY() + selected.getLocalY() - 0.05);
-      }
-      
-      // Close the game
-      if(this.choices[3].active && !this.optionsOpened){
-        Sup.exit();
-      }
-
-      // Fullscreen mode
-      if(this.options[0].active && this.optionsOpened){
-        if(this.fullScreen){
-          Sup.Input.exitFullscreen();
-          this.fullScreen = false;
-        } else {
-          Sup.Input.goFullscreen();
-          this.fullScreen = true;
-        }        
-      }      
-      
-      // Go back to Main Menu
-      if(this.options[2].active && this.optionsOpened){
-        this.optionsActor.setVisible(false);
-        let selected = this.mainActor.getChildren()[2];
-        this.selector.setLocalX(this.mainActor.getLocalX());
-        this.selector.setLocalY(this.mainActor.getLocalY() + selected.getLocalY() - 0.05);
-      }      
+    if(Sup.Input.wasKeyJustPressed("RETURN") || Sup.Input.wasKeyJustPressed("SPACE")
+       || Sup.Input.wasKeyJustPressed("X")){
+      this.action();
     }
     
     if(Sup.Input.wasKeyJustPressed("DOWN")){      
@@ -124,9 +89,33 @@ class MainMenuBehavior extends Sup.Behavior {
         this.changeChoice("U", this.options, this.optionsActor);
       }
     }
+    
+    // Mouse control
+    let ray = new Sup.Math.Ray();
+    ray.setOrigin(0, 1, 2);
+    ray.setDirection(0, 0, 1);
+    ray.setFromCamera(Sup.getActor("Camera").camera, Sup.Input.getMousePosition());
+    let interactions = ray.intersectActors([]);
+    if(this.optionsOpened){
+      interactions = ray.intersectActors(this.optionsActor.getChildren());
+    } else {
+      interactions = ray.intersectActors(this.mainActor.getChildren());
+    }
+    
+
+    for (let interaction of interactions) {
+      if(this.optionsOpened){
+        this.changeChoiceByMouse(this.options, interaction.actor);
+      } else {
+        this.changeChoiceByMouse(this.choices, interaction.actor);
+      }
+      if(Sup.Input.wasMouseButtonJustReleased(0)){
+        this.action();
+      }
+    }
   }
   
-  changeChoice(direction: string, menuArray: Menu[], actor: Sup.Actor){    
+  changeChoice(direction: string, menuArray: Menu[], actor: Sup.Actor){
     if(direction == "D"){
       for(let i = 0; i < menuArray.length; i++){
           if(menuArray[i].active){
@@ -169,6 +158,63 @@ class MainMenuBehavior extends Sup.Behavior {
     });
     this.selector.setLocalX(actor.getLocalX());
     this.selector.setLocalY(actor.getLocalY() + selected.getLocalY() - 0.05);
+  }
+  
+  changeChoiceByMouse(menuArray: Menu[], actor: Sup.Actor){
+      let option: Menu;
+      for(let i = 0; i < menuArray.length; i++){
+        if(menuArray[i].actorName == actor.getName()){
+          option = menuArray[i];
+        }
+      }
+      if(!option.disabled){
+        menuArray.forEach((choice, index) => {
+          choice.active = false;
+        });
+        option.active = true;
+        this.selector.setLocalX(actor.getParent().getLocalX());
+        this.selector.setLocalY(actor.getParent().getLocalY() + actor.getLocalY() - 0.05);        
+      }      
+  }
+  
+  action(){
+      // Start the game
+      if(this.choices[0].active && !this.optionsOpened){
+        Sup.loadScene("HUD/Prefab");
+        Game.loadMap("Map1");        
+      }
+      
+      // Open options
+      if(this.choices[2].active && !this.optionsOpened){
+        this.optionsActor.setVisible(true);
+        let selected = this.optionsActor.getChildren()[0];
+        this.selector.setLocalX(this.optionsActor.getLocalX());
+        this.selector.setLocalY(this.optionsActor.getLocalY() + selected.getLocalY() - 0.05);
+      }
+      
+      // Close the game
+      if(this.choices[3].active && !this.optionsOpened){
+        Sup.exit();
+      }
+
+      // Fullscreen mode
+      if(this.options[0].active && this.optionsOpened){
+        if(this.fullScreen){
+          Sup.Input.exitFullscreen();
+          this.fullScreen = false;
+        } else {
+          Sup.Input.goFullscreen();
+          this.fullScreen = true;
+        }        
+      }      
+      
+      // Go back to Main Menu
+      if(this.options[2].active && this.optionsOpened){
+        this.optionsActor.setVisible(false);
+        let selected = this.mainActor.getChildren()[2];
+        this.selector.setLocalX(this.mainActor.getLocalX());
+        this.selector.setLocalY(this.mainActor.getLocalY() + selected.getLocalY() - 0.05);
+      }    
   }
 }
 Sup.registerBehavior(MainMenuBehavior);
