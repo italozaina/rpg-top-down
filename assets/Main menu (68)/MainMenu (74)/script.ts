@@ -29,7 +29,7 @@ class MainMenuBehavior extends Sup.Behavior {
                     new Menu("Options",false,false),
                     new Menu("Exit",false,false)];
     
-    this.options = [new Menu("Tela cheia",true,false),
+    this.options = [new Menu("Full screen",true,false),
                     new Menu("Fps",false,true),                    
                     new Menu("Back",false,false)];    
     

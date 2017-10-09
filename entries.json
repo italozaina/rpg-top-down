@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 79,
+  "nextEntryId": 81,
   "nodes": [
     {
       "id": "18",
@@ -39,6 +39,11 @@
         {
           "id": "78",
           "name": "Yes-or-No_frame",
+          "type": "sprite"
+        },
+        {
+          "id": "80",
+          "name": "Background",
           "type": "sprite"
         }
       ]
