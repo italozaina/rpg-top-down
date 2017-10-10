@@ -8,7 +8,6 @@ class MouseBehavior extends Sup.Behavior {
   
   awake() {
     Game.mouse = this;
-    Sup.log( Sup.Input.getScreenSize());
     this.makeWalkX = false;
     this.makeWalkY = false;
     this.actor.setVisible(false);

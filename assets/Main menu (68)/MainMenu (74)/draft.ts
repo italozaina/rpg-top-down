@@ -65,6 +65,7 @@ class MainMenuBehavior extends Sup.Behavior {
     });    
     
     this.selector = Sup.getActor("Selector");
+    
   }
 
   update() {

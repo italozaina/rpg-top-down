@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 83,
+  "nextEntryId": 87,
   "nodes": [
     {
       "id": "18",
@@ -380,6 +380,23 @@
       "type": null,
       "children": [
         {
+          "id": "84",
+          "name": "Sound",
+          "type": null,
+          "children": [
+            {
+              "id": "85",
+              "name": "Menu",
+              "type": "sound"
+            },
+            {
+              "id": "86",
+              "name": "Menu_fail",
+              "type": "sound"
+            }
+          ]
+        },
+        {
           "id": "28",
           "name": "Marker",
           "type": null,
@@ -407,6 +424,11 @@
               "type": "script"
             }
           ]
+        },
+        {
+          "id": "83",
+          "name": "Arrows",
+          "type": "sprite"
         }
       ]
     },

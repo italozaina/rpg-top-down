@@ -6,6 +6,11 @@ namespace Game {
   
   let mapRoot: Sup.Actor;
   let currentMap = "Start";
+  
+  export function closeMap() {
+    if (mapRoot != null) mapRoot.destroy();
+    Fade.start(Fade.Direction.In);
+  }  
   export function loadMap(map: string) {
     if (mapRoot != null) mapRoot.destroy();
     
