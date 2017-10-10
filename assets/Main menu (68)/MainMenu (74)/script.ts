@@ -65,6 +65,8 @@ class MainMenuBehavior extends Sup.Behavior {
     });    
     
     this.selector = Sup.getActor("Selector");
+    
+    Fade.start(Fade.Direction.In);
   }
 
   update() {
