@@ -4,7 +4,49 @@
     {
       "id": "0",
       "name": "Frame",
-      "children": [],
+      "children": [
+        {
+          "id": "1",
+          "name": "Text",
+          "children": [],
+          "components": [
+            {
+              "type": "TextRenderer",
+              "config": {
+                "formatVersion": 2,
+                "fontAssetId": "82",
+                "text": "",
+                "alignment": "left",
+                "verticalAlignment": "top",
+                "size": null,
+                "color": null,
+                "overrideOpacity": false,
+                "opacity": null
+              },
+              "id": "0"
+            }
+          ],
+          "position": {
+            "x": -12.95517339156686,
+            "y": 1.8776965141296387,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
+        }
+      ],
       "components": [
         {
           "type": "SpriteRenderer",
@@ -23,6 +65,14 @@
             "shaderAssetId": null
           },
           "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "DialogBehavior",
+            "propertyValues": {}
+          },
+          "id": "1"
         }
       ],
       "position": {

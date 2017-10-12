@@ -2,7 +2,7 @@
   "formatVersion": 2,
   "isBitmap": false,
   "filtering": "pixelated",
-  "pixelsPerUnit": 64,
+  "pixelsPerUnit": 32,
   "size": 32,
   "color": "ffffff",
   "opacity": null,

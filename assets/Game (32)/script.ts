@@ -3,19 +3,17 @@ namespace Game {
   export let mouse: MouseBehavior;
   export let mapWidth: number;
   export let mapHeight: number;  
+  export let dialogBehavior: DialogBehavior;
+  export let interactables: InteractableBehavior[];
   
   let mapRoot: Sup.Actor;
   let currentMap = "Start";
   
-  export function closeMap() {
-    if (mapRoot != null) mapRoot.destroy();
-    Fade.start(Fade.Direction.In);
-  }  
   export function loadMap(map: string) {
     if (mapRoot != null) mapRoot.destroy();
     
     // enemies = [];
-    // interactables = [];
+    interactables = [];
     
     mapRoot = Sup.appendScene(`Maps/${map}/Prefab`)[0];
     let mapActor = mapRoot.getChild("Map");

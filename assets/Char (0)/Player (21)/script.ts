@@ -11,6 +11,8 @@ class PlayerBehavior extends Sup.Behavior {
   
   position: Sup.Math.Vector2;
   
+  activeInteractable: InteractableBehavior;
+  
   awake() {
     Game.player = this;
     this.player = this.actor;
@@ -26,6 +28,12 @@ class PlayerBehavior extends Sup.Behavior {
     
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
 
+    if (this.activeInteractable != null) {
+      if (Sup.Input.wasKeyJustPressed("RETURN") || Sup.Input.wasKeyJustPressed("SPACE")
+       || Sup.Input.wasKeyJustPressed("X")) this.activeInteractable.interact();
+      return;
+    }
+    
     this.position = this.actor.getLocalPosition().toVector2();
    
     let velocity = this.actor.arcadeBody2D.getVelocity();    
@@ -53,7 +61,7 @@ class PlayerBehavior extends Sup.Behavior {
       this.idle = false;
       this.walk = true;
       velocity.x = 0.05;
-    }
+    }       
     
     if(Sup.Input.isKeyDown("X") && !this.frameInteraction){
       this.atack = true;
@@ -114,6 +122,22 @@ class PlayerBehavior extends Sup.Behavior {
     }
     
     this.actor.arcadeBody2D.setVelocity(velocity);
+     
+    // Interactions
+    if (Sup.Input.wasKeyJustPressed("RETURN") || Sup.Input.wasKeyJustPressed("SPACE")
+       || Sup.Input.wasKeyJustPressed("X")) {
+      let closestInteractable: InteractableBehavior;
+      let closestDistance = Infinity;
+      for (let interactable of Game.interactables) {
+        let distance = this.position.distanceTo(interactable.actor.getLocalPosition().toVector2());
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestInteractable = interactable;
+        }
+      }
+      
+      if (closestDistance < 1.51) closestInteractable.interact();
+    }     
     
     if(this.idle && !this.atack && !this.die){
       for(let child of this.player.getChildren()){
@@ -121,23 +145,23 @@ class PlayerBehavior extends Sup.Behavior {
       }
     } 
     
-    if(this.walk){
+    if(this.walk && !this.frameInteraction){
       for(let child of this.player.getChildren()){
         child.spriteRenderer.setAnimation("Walk"+this.direction);
       }
     } 
     
-    if(this.atack){
+    if(this.atack && !this.frameInteraction){
       for(let child of this.player.getChildren()){
         child.spriteRenderer.setAnimation(this.typesOfWeapons[this.typeWeapon]+this.direction);
       }     
     }
 
-    if(this.die){
+    if(this.die && !this.frameInteraction){
       for(let child of this.player.getChildren()){
         child.spriteRenderer.setAnimation("Die");
       }     
-    }    
+    }     
   }
 }
 Sup.registerBehavior(PlayerBehavior);

@@ -102,10 +102,48 @@
         }
       ]
     },
-    "NpcBehavior": {
-      "scriptId": "67",
+    "MainMenuBehavior": {
+      "scriptId": "74",
+      "line": 13,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "optionsOpened",
+          "type": "boolean"
+        },
+        {
+          "name": "fullScreen",
+          "type": "boolean"
+        }
+      ]
+    },
+    "GameMenuBehavior": {
+      "scriptId": "81",
       "line": 0,
       "parentBehavior": null,
+      "properties": []
+    },
+    "InteractableBehavior": {
+      "scriptId": "87",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "position",
+          "type": "Sup.Math.Vector2"
+        }
+      ]
+    },
+    "DialogBehavior": {
+      "scriptId": "88",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "GirlBehavior": {
+      "scriptId": "90",
+      "line": 0,
+      "parentBehavior": "SimpleDialogBehavior",
       "properties": [
         {
           "name": "direction",
@@ -138,29 +176,23 @@
         {
           "name": "position",
           "type": "Sup.Math.Vector2"
-        }
-      ]
-    },
-    "MainMenuBehavior": {
-      "scriptId": "74",
-      "line": 13,
-      "parentBehavior": null,
-      "properties": [
-        {
-          "name": "optionsOpened",
-          "type": "boolean"
         },
         {
-          "name": "fullScreen",
+          "name": "lookToPlayer",
           "type": "boolean"
         }
       ]
     },
-    "GameMenuBehavior": {
-      "scriptId": "81",
+    "SimpleDialogBehavior": {
+      "scriptId": "91",
       "line": 0,
-      "parentBehavior": null,
-      "properties": []
+      "parentBehavior": "InteractableBehavior",
+      "properties": [
+        {
+          "name": "currentText",
+          "type": "any"
+        }
+      ]
     }
   }
 }

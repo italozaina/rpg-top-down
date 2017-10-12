@@ -50,15 +50,15 @@
           "prefab": null
         },
         {
-          "id": "7",
-          "name": "Feet",
+          "id": "2",
+          "name": "Hair",
           "children": [],
           "components": [
             {
               "type": "SpriteRenderer",
               "config": {
                 "formatVersion": 1,
-                "spriteAssetId": "64",
+                "spriteAssetId": "61",
                 "animationId": "2",
                 "horizontalFlip": false,
                 "verticalFlip": false,
@@ -76,7 +76,7 @@
           "position": {
             "x": 0,
             "y": 0,
-            "z": 1
+            "z": 0.1
           },
           "orientation": {
             "x": 0,
@@ -138,50 +138,6 @@
           "prefab": null
         },
         {
-          "id": "2",
-          "name": "Hair",
-          "children": [],
-          "components": [
-            {
-              "type": "SpriteRenderer",
-              "config": {
-                "formatVersion": 1,
-                "spriteAssetId": "61",
-                "animationId": "2",
-                "horizontalFlip": false,
-                "verticalFlip": false,
-                "castShadow": false,
-                "receiveShadow": false,
-                "color": "ffffff",
-                "overrideOpacity": false,
-                "opacity": null,
-                "materialType": "basic",
-                "shaderAssetId": null
-              },
-              "id": "0"
-            }
-          ],
-          "position": {
-            "x": 0,
-            "y": 0,
-            "z": 2
-          },
-          "orientation": {
-            "x": 0,
-            "y": 0,
-            "z": 0,
-            "w": 1
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "visible": true,
-          "layer": 0,
-          "prefab": null
-        },
-        {
           "id": "4",
           "name": "Legs",
           "children": [],
@@ -209,6 +165,50 @@
             "x": 0,
             "y": 0,
             "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
+        },
+        {
+          "id": "7",
+          "name": "Feet",
+          "children": [],
+          "components": [
+            {
+              "type": "SpriteRenderer",
+              "config": {
+                "formatVersion": 1,
+                "spriteAssetId": "64",
+                "animationId": "2",
+                "horizontalFlip": false,
+                "verticalFlip": false,
+                "castShadow": false,
+                "receiveShadow": false,
+                "color": "ffffff",
+                "overrideOpacity": false,
+                "opacity": null,
+                "materialType": "basic",
+                "shaderAssetId": null
+              },
+              "id": "0"
+            }
+          ],
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0.1
           },
           "orientation": {
             "x": 0,
@@ -278,7 +278,7 @@
             "type": "box",
             "movable": true,
             "width": 1,
-            "height": 1.5,
+            "height": 1.4,
             "offset": {
               "x": 0.5,
               "y": 0.8
@@ -296,8 +296,16 @@
         {
           "type": "Behavior",
           "config": {
-            "behaviorName": "NpcBehavior",
+            "behaviorName": "GirlBehavior",
             "propertyValues": {
+              "direction": {
+                "type": "string",
+                "value": "L"
+              },
+              "typeWeapon": {
+                "type": "number",
+                "value": 0
+              },
               "idle": {
                 "type": "boolean",
                 "value": true
@@ -313,18 +321,10 @@
               "atack": {
                 "type": "boolean",
                 "value": false
-              },
-              "direction": {
-                "type": "string",
-                "value": "L"
-              },
-              "typeWeapon": {
-                "type": "number",
-                "value": 1
               }
             }
           },
-          "id": "2"
+          "id": "3"
         }
       ],
       "position": {

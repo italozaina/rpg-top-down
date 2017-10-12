@@ -27,55 +27,44 @@ class MouseBehavior extends Sup.Behavior {
     this.position.y = mousePosition.y;
     let position = this.position.toVector2().multiplyScalar(10);
     
-    this.actor.setLocalPosition(Math.floor(position.x/10),Math.floor(position.y/10));    
-    
-    //TODO Click to walk
-    if(Sup.Input.isMouseButtonDown(0) && !Game.player.frameInteraction){ 
-      this.actor.setVisible(true);
-      this.cordToWalk = this.position.toVector2().multiplyScalar(10);
-      // Sup.log("      -----     ");                  
-      // Sup.log("X: ",Math.floor(this.cordToWalk.x / 10));
-      // Sup.log("Y: ",Math.floor(this.cordToWalk.y / 10));
-      let pX = Math.floor(this.cordToWalk.x / 10);
-      let cX = Math.floor(Game.player.actor.getPosition().toVector2().x);
-      let pY = Math.floor(this.cordToWalk.y / 10);
-      let cY = Math.floor(Game.player.actor.getPosition().toVector2().y);        
-      this.makeWalkX = true;
-      this.makeWalkY = true;
-      let distX = 0;
-      let distY = 0;
-      if(cX > 0){
-        distX = Math.abs(cX - pX);
-      } else {
-        distX = Math.abs(pX - cX);
-      }
-      if(cY > 0){
-        distY = Math.abs(cY - pY);
-      } else {
-        distY = Math.abs(pY - cY);
+    // this.actor.setLocalPosition(Math.floor(position.x/10),Math.floor(position.y/10));
+    let ray = new Sup.Math.Ray();
+    ray.setOrigin(0, 1, 2);
+    ray.setDirection(0, 0, 1);
+    ray.setFromCamera(Sup.getActor("Camera").camera, Sup.Input.getMousePosition());
+    let interactions = ray.intersectActors(Sup.getAllActors());    
+    let walk = true;
+    let dialog = false;
+    for (let interaction of interactions) {
+      if(interaction.actor.getName() == "Body" ){          
+        walk = false;
+        dialog = true;
       }      
-      // Sup.log(cX +" "+ pX+"\nDistX :"+distX+"\nDistY :"+distY);
-      //TODO set Direction to look
-      if(distX > distY){
-        if(pX < cX){
-          //LEFT
-          Game.player.direction = "L";
-        } else {
-          //RIGTH
-          Game.player.direction = "R";
-        }
-      } else {
-        if(pY < cY){
-          //DOWN
-          Game.player.direction = "D";
-        } else {
-          //UP
-          Game.player.direction = "U";
-        }        
+    }        
+
+    if (Game.player.activeInteractable != null) {
+      if (Sup.Input.wasMouseButtonJustReleased(0)) Game.player.activeInteractable.interact();
+      return;
+    }    
+    
+    //TODO Click to walk or Start interaction
+    if(Sup.Input.wasMouseButtonJustReleased(0) && !Game.player.frameInteraction){
+      if(walk){
+        this.walk(position);
       }
-      //TODO start animation walk
-      Game.player.idle = false;
-      Game.player.walk = true;
+      if(dialog){
+        let closestInteractable: InteractableBehavior;
+        let closestDistance = Infinity;
+        for (let interactable of Game.interactables) {
+          let distance = Game.player.position.distanceTo(interactable.actor.getLocalPosition().toVector2());
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestInteractable = interactable;
+          }
+        }
+
+        if (closestDistance < 1.51) closestInteractable.interact();        
+      }
     }
     
     //TODO Continue walk to reach coods
@@ -103,7 +92,7 @@ class MouseBehavior extends Sup.Behavior {
           Game.player.actor.arcadeBody2D.setVelocityY(-0.05);       
         if(pY > cY) 
           Game.player.actor.arcadeBody2D.setVelocityY(0.05);
-    }    
+    }      
     
     //TODO stop animation
     if(!this.makeWalkX && !this.makeWalkY){
@@ -125,5 +114,53 @@ class MouseBehavior extends Sup.Behavior {
     // this.timer--;
   }
   
+  walk(position){
+    this.actor.setVisible(true);
+    this.actor.setLocalPosition(Math.floor(position.x/10),Math.floor(position.y/10)); 
+    this.cordToWalk = this.position.toVector2().multiplyScalar(10);
+    // Sup.log("      -----     ");                  
+    // Sup.log("X: ",Math.floor(this.cordToWalk.x / 10));
+    // Sup.log("Y: ",Math.floor(this.cordToWalk.y / 10));
+    let pX = Math.floor(this.cordToWalk.x / 10);
+    let cX = Math.floor(Game.player.actor.getPosition().toVector2().x);
+    let pY = Math.floor(this.cordToWalk.y / 10);
+    let cY = Math.floor(Game.player.actor.getPosition().toVector2().y);        
+    this.makeWalkX = true;
+    this.makeWalkY = true;
+    let distX = 0;
+    let distY = 0;
+    if(cX > 0){
+      distX = Math.abs(cX - pX);
+    } else {
+      distX = Math.abs(pX - cX);
+    }
+    if(cY > 0){
+      distY = Math.abs(cY - pY);
+    } else {
+      distY = Math.abs(pY - cY);
+    }      
+    // Sup.log(cX +" "+ pX+"\nDistX :"+distX+"\nDistY :"+distY);
+    //TODO set Direction to look
+    if(distX > distY){
+      if(pX < cX){
+        //LEFT
+        Game.player.direction = "L";
+      } else {
+        //RIGTH
+        Game.player.direction = "R";
+      }
+    } else {
+      if(pY < cY){
+        //DOWN
+        Game.player.direction = "D";
+      } else {
+        //UP
+        Game.player.direction = "U";
+      }        
+    }
+    //TODO start animation walk
+    Game.player.idle = false;
+    Game.player.walk = true;    
+  }
 }
 Sup.registerBehavior(MouseBehavior);
