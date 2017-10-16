@@ -139,8 +139,8 @@ class GameMenuBehavior extends Sup.Behavior {
   
   action(){      
       // TODO Back to main menu
-      if(this.choices[6].active){        
-        Sup.exit();
+      if(this.choices[6].active){
+        Sup.loadScene("Main menu/Prefab");
       }
 
       // TODO Open items management

@@ -71,8 +71,15 @@ class MouseBehavior extends Sup.Behavior {
     if(this.makeWalkX && !Game.player.frameInteraction){
       let pX = Math.floor(this.cordToWalk.x / 10) * 10;
       let cX = Math.floor(Game.player.actor.getPosition().toVector2().multiplyScalar(10).x);
+      Sup.log(Game.player.actor.getPosition().toVector2().x);
       if(pX == cX) {
-        this.makeWalkX = false;
+        this.makeWalkX = false;    
+        
+        //This fix float error
+        let pos = Game.player.actor.getPosition();
+        pos.x = cX / 10; 
+        Game.player.actor.arcadeBody2D.warpPosition(pos);
+        
         Game.player.actor.arcadeBody2D.setVelocityX(0);
       } 
         if(pX < cX) 

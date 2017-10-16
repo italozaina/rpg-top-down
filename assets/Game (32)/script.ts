@@ -7,7 +7,13 @@ namespace Game {
   export let interactables: InteractableBehavior[];
   
   let mapRoot: Sup.Actor;
-  let currentMap = "Start";
+  let currentMap = "Start";    
+
+  export function init() {
+    mapRoot = null;
+    currentMap = "Start";
+    Sup.loadScene("HUD/Prefab");
+  }  
   
   export function loadMap(map: string) {
     if (mapRoot != null) mapRoot.destroy();
@@ -21,7 +27,7 @@ namespace Game {
     let options: TileMapOptions = { tileMapAsset, tileSetPropertyName: "solid" };
     new Sup.ArcadePhysics2D.Body(mapActor, Sup.ArcadePhysics2D.BodyType.TileMap, options);
     
-    let spawnName = currentMap.split("/");
+    let spawnName = currentMap.split("/");    
     let spawn = mapRoot.getChild("Markers").getChild(`From ${spawnName[spawnName.length-1]}`).getLocalPosition().toVector2();
     Game.player.actor.arcadeBody2D.warpPosition(spawn);
     currentMap = map;

@@ -66,6 +66,8 @@ class MainMenuBehavior extends Sup.Behavior {
     
     this.selector = Sup.getActor("Selector");
     
+    Sup.Input.exitFullscreen();
+    
     Fade.start(Fade.Direction.In);
   }
 
@@ -184,8 +186,8 @@ class MainMenuBehavior extends Sup.Behavior {
   action(){
       // Start the game
       if(this.choices[0].active && !this.optionsOpened){
-        Sup.loadScene("HUD/Prefab");
-        Game.loadMap("Map1");        
+        Game.init();
+        Game.loadMap("Map1");
       }
       
       // Open options
