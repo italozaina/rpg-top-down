@@ -5,6 +5,7 @@ class MouseBehavior extends Sup.Behavior {
   cordToWalk: Sup.Math.Vector2;
   makeWalkX: boolean;
   makeWalkY: boolean;
+  pressedMouseX: number;
   
   awake() {
     Game.mouse = this;
@@ -34,7 +35,7 @@ class MouseBehavior extends Sup.Behavior {
     ray.setFromCamera(Sup.getActor("Camera").camera, Sup.Input.getMousePosition());
     let interactions = ray.intersectActors(Sup.getAllActors());    
     let walk = true;
-    let dialog = false;
+    let dialog = false;    
     for (let interaction of interactions) {
       if(interaction.actor.getName() == "Body" ){          
         walk = false;
@@ -46,9 +47,17 @@ class MouseBehavior extends Sup.Behavior {
       if (Sup.Input.wasMouseButtonJustReleased(0)) Game.player.activeInteractable.interact();
       return;
     }    
+    if(Sup.Input.wasMouseButtonJustPressed(0) && !Game.player.frameInteraction){
+      this.pressedMouseX = Math.floor(position.x / 10);        
+    }
     
-    //TODO Click to walk or Start interaction
+    //TODO Open menu slide over the char
     if(Sup.Input.wasMouseButtonJustReleased(0) && !Game.player.frameInteraction){
+      if(this.pressedMouseX < Game.player.position.x && Game.player.position.x < Math.floor(position.x / 10)){
+        Sup.log("Opened Game Menu");
+        walk = false;
+        Game.player.openMenu();
+      }
       if(walk){
         this.walk(position);
       }
@@ -71,7 +80,6 @@ class MouseBehavior extends Sup.Behavior {
     if(this.makeWalkX && !Game.player.frameInteraction){
       let pX = Math.floor(this.cordToWalk.x / 10) * 10;
       let cX = Math.floor(Game.player.actor.getPosition().toVector2().multiplyScalar(10).x);
-      Sup.log(Game.player.actor.getPosition().toVector2().x);
       if(pX == cX) {
         this.makeWalkX = false;    
         

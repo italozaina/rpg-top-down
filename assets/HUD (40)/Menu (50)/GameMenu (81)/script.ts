@@ -12,7 +12,8 @@ class GameMenuBehavior extends Sup.Behavior {
                     new Menu("Status",false,false),
                     new Menu("Save",false,true),
                     new Menu("Load",false,true),
-                    new Menu("Exit",true,false)];
+                    new Menu("Close menu",true,false),
+                    new Menu("Exit",false,false)];
     
     this.choices.forEach((choice, index) => {
       choice.actorName = "Game_Menu_"+index;
@@ -57,18 +58,15 @@ class GameMenuBehavior extends Sup.Behavior {
       ray.setOrigin(0, 1, 2);
       ray.setDirection(0, 0, 1);
       ray.setFromCamera(Sup.getActor("Camera").camera, Sup.Input.getMousePosition());
-      let interactions = ray.intersectActors([]);
+      let interactions = ray.intersectActors(this.menu.getChildren());
 
-      interactions = ray.intersectActors(this.menu.getChildren());
-
-
-      for (let interaction of interactions) {
+      for (let interaction of interactions) {        
         if(interaction.actor.getName() != "Arrow"){
           this.changeChoiceByMouse(this.choices, interaction.actor);
           if(Sup.Input.wasMouseButtonJustReleased(0)){
             this.action();        
           }
-        }
+        }                   
       }      
     }    
   }
@@ -138,11 +136,16 @@ class GameMenuBehavior extends Sup.Behavior {
   }  
   
   action(){      
-      // TODO Back to main menu
+      // Back to main menu
       if(this.choices[6].active){
-        Sup.loadScene("Main menu/Prefab");
+        Game.player.openMenu();
       }
 
+      // Back to main menu
+      if(this.choices[7].active){
+        Sup.loadScene("Main menu/Prefab");
+      }    
+    
       // TODO Open items management
       if(this.choices[0].active){        
         Sup.Audio.playSound("Misc/Sound/Menu_fail");

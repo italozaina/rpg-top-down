@@ -163,5 +163,16 @@ class PlayerBehavior extends Sup.Behavior {
       }     
     }     
   }
+  
+  openMenu(){
+    const menu = Sup.getActor("Menu");
+    if(menu.getVisible()){
+      menu.setVisible(false);
+      this.frameInteraction = false;
+    } else {
+      menu.setVisible(true); 
+      this.frameInteraction = true;
+    }    
+  }
 }
 Sup.registerBehavior(PlayerBehavior);

@@ -24,6 +24,10 @@
         {
           "name": "makeWalkY",
           "type": "boolean"
+        },
+        {
+          "name": "pressedMouseX",
+          "type": "number"
         }
       ]
     },
