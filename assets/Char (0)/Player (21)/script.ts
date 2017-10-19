@@ -62,6 +62,10 @@ class PlayerBehavior extends Sup.Behavior {
       this.walk = true;
       velocity.x = 0.05;
     }       
+
+    // if (velocity.x != 0 || velocity.y != 0) {
+    //   velocity.normalize().multiplyScalar(0.05);
+    // }
     
     if(Sup.Input.isKeyDown("X") && !this.frameInteraction){
       this.atack = true;

@@ -5,6 +5,7 @@ namespace Game {
   export let mapHeight: number;  
   export let dialogBehavior: DialogBehavior;
   export let interactables: InteractableBehavior[];
+  export let gameObjects: {gameObject: GameObject, quantity: number}[];
   
   let mapRoot: Sup.Actor;
   let currentMap = "Start";    
@@ -13,6 +14,11 @@ namespace Game {
     mapRoot = null;
     currentMap = "Start";
     Sup.loadScene("HUD/Prefab");
+    gameObjects = [];
+    for(let i = 0; i < 50; i++){
+      gameObjects.push(null);
+    }
+    Sup.log(gameObjects);
   }  
   
   export function loadMap(map: string) {
@@ -24,7 +30,7 @@ namespace Game {
     mapRoot = Sup.appendScene(`Maps/${map}/Prefab`)[0];
     let mapActor = mapRoot.getChild("Map");
     let tileMapAsset = Sup.get(`Maps/${map}/Map`, Sup.TileMap);
-    let options: TileMapOptions = { tileMapAsset, tileSetPropertyName: "solid" };
+    let options: TileMapOptions = { tileMapAsset, tileSetPropertyName: "solid" };    
     new Sup.ArcadePhysics2D.Body(mapActor, Sup.ArcadePhysics2D.BodyType.TileMap, options);
     
     let spawnName = currentMap.split("/");    

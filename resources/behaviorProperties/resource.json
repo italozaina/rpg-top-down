@@ -197,6 +197,33 @@
           "type": "any"
         }
       ]
+    },
+    "WonGameObjDialogBehavior": {
+      "scriptId": "97",
+      "line": 0,
+      "parentBehavior": "InteractableBehavior",
+      "properties": [
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "name": "isItem",
+          "type": "boolean"
+        },
+        {
+          "name": "trigger",
+          "type": "number"
+        },
+        {
+          "name": "id",
+          "type": "number"
+        },
+        {
+          "name": "currentText",
+          "type": "any"
+        }
+      ]
     }
   }
 }

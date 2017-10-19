@@ -1,10 +1,22 @@
 {
-  "nextEntryId": 92,
+  "nextEntryId": 98,
   "nodes": [
     {
-      "id": "18",
-      "name": "Teste",
-      "type": "scene"
+      "id": "92",
+      "name": "Class",
+      "type": null,
+      "children": [
+        {
+          "id": "93",
+          "name": "GameObjects",
+          "type": "script"
+        },
+        {
+          "id": "94",
+          "name": "GameEvents",
+          "type": "script"
+        }
+      ]
     },
     {
       "id": "87",
@@ -14,6 +26,11 @@
     {
       "id": "91",
       "name": "SimpleDialog",
+      "type": "script"
+    },
+    {
+      "id": "97",
+      "name": "WonGameObjDialog",
       "type": "script"
     },
     {
@@ -378,6 +395,12 @@
           "type": "script"
         }
       ]
+    },
+    {
+      "id": "95",
+      "name": "Events",
+      "type": null,
+      "children": []
     },
     {
       "id": "69",
