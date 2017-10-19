@@ -12,7 +12,11 @@ class WonGameObjDialogBehavior extends InteractableBehavior {
     super.awake();
     this.texts = [
       "\n        Got " + this.amount + " " + this.getGameObject().getName()
-    ];        
+    ];    
+  }
+
+  start(){
+    Game.getTileMap().setTileAt(3,this.actor.getLocalX(),this.actor.getLocalY(),583);
   }
 
   interact() {
@@ -27,8 +31,8 @@ class WonGameObjDialogBehavior extends InteractableBehavior {
     } else {      
       if(Events.parts[this.trigger]){
         //add gameObj
-        this.addInventory();
-        Sup.log(Game.gameObjects);         
+        Game.getTileMap().setTileAt(3,this.actor.getLocalX(),this.actor.getLocalY(),616);
+        this.addInventory();    
       }
       //close trigger
       Events.parts[this.trigger] = false;      

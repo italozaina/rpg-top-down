@@ -21,6 +21,10 @@ namespace Game {
     Sup.log(gameObjects);
   }  
   
+  export function getTileMap(){
+    return mapRoot.getChild("Map").tileMapRenderer.getTileMap();
+  }
+  
   export function loadMap(map: string) {
     if (mapRoot != null) mapRoot.destroy();
     
