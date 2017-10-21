@@ -56,7 +56,7 @@ class MouseBehavior extends Sup.Behavior {
       if(this.pressedMouseX < Game.player.position.x && Game.player.position.x < Math.floor(position.x / 10)){
         Sup.log("Opened Game Menu");
         walk = false;
-        Game.player.openMenu();
+        Game.player.toggleMenu();
       }
       if(walk){
         this.walk(position);

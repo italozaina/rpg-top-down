@@ -6,13 +6,13 @@ class GameMenuBehavior extends Sup.Behavior {
   awake() {
     this.menu = Sup.getActor("Menu");
     this.arrow = this.menu.getChild("Arrow");
-    this.choices = [new Menu("Items",false,false),
+    this.choices = [new Menu("Items",true,false),
                     new Menu("Skills",false,true),
                     new Menu("Equipment",false,true),
                     new Menu("Status",false,false),
                     new Menu("Save",false,true),
                     new Menu("Load",false,true),
-                    new Menu("Close menu",true,false),
+                    new Menu("Close menu",false,false),
                     new Menu("Exit",false,false)];
     
     this.choices.forEach((choice, index) => {
@@ -135,10 +135,12 @@ class GameMenuBehavior extends Sup.Behavior {
       }      
   }  
   
-  action(){      
+  action(){
+      const inventory = Sup.getActor("Inventory");
+      const menu = Sup.getActor("Menu");
       // Back to main menu
       if(this.choices[6].active){
-        Game.player.openMenu();
+        Game.player.toggleMenu();
       }
 
       // Back to main menu
@@ -147,8 +149,12 @@ class GameMenuBehavior extends Sup.Behavior {
       }    
     
       // TODO Open items management
-      if(this.choices[0].active){        
-        Sup.Audio.playSound("Misc/Sound/Menu_fail");
+      if(this.choices[0].active){              
+        Game.player.toggleMenu();
+        Game.inventory.load = true;
+        Game.inventory.opened = true;
+        Game.player.toggleInventory();
+        // Sup.Audio.playSound("Misc/Sound/Menu_fail");
       }
     
       // TODO Open Status view

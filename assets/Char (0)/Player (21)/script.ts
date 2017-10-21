@@ -81,35 +81,32 @@ class PlayerBehavior extends Sup.Behavior {
       else this.typeWeapon = 0;
     }    
 
-    if(Sup.Input.wasKeyJustPressed("F") && !inventory.getVisible() && !menu.getVisible()){
+//     if(Sup.Input.wasKeyJustPressed("F") && !inventory.getVisible() && !menu.getVisible()){
       
-      if(dialog.getVisible()){
-        dialog.setVisible(false);
-        this.frameInteraction = false;
-      } else {
-        dialog.setVisible(true); 
-        this.frameInteraction = true;
-      }      
-    }    
+//       if(dialog.getVisible()){
+//         dialog.setVisible(false);
+//         this.frameInteraction = false;
+//       } else {
+//         dialog.setVisible(true); 
+//         this.frameInteraction = true;
+//       }      
+//     }    
     
-    if(Sup.Input.wasKeyJustPressed("I") && !menu.getVisible() && !dialog.getVisible()){      
-      if(inventory.getVisible()){
-        inventory.setVisible(false);
-        this.frameInteraction = false;
-      } else {
-        inventory.setVisible(true);
-        this.frameInteraction = true;
-      }      
-    }
+    // if(Sup.Input.wasKeyJustPressed("I") && !menu.getVisible() && !dialog.getVisible()){      
+    //   if(inventory.getVisible()){
+    //     inventory.setVisible(false);
+    //     this.frameInteraction = false;
+    //   } else {
+    //     inventory.setVisible(true);
+    //     this.frameInteraction = true;
+    //   }      
+    // }
     
-    if(Sup.Input.wasKeyJustPressed("Z") && !dialog.getVisible() && !inventory.getVisible()){      
-      if(menu.getVisible()){
-        menu.setVisible(false);
-        this.frameInteraction = false;
-      } else {
-        menu.setVisible(true); 
-        this.frameInteraction = true;
-      }      
+    if(Sup.Input.wasKeyJustPressed("Z")){
+      if(Game.inventory.opened)
+        Game.player.toggleInventory();
+      if(!Game.inventory.opened)
+        Game.player.toggleMenu();
     }
     
     if((Sup.Input.wasKeyJustReleased("DOWN") 
@@ -168,7 +165,7 @@ class PlayerBehavior extends Sup.Behavior {
     }     
   }
   
-  openMenu(){
+  toggleMenu(){
     const menu = Sup.getActor("Menu");
     if(menu.getVisible()){
       menu.setVisible(false);
@@ -177,6 +174,18 @@ class PlayerBehavior extends Sup.Behavior {
       menu.setVisible(true); 
       this.frameInteraction = true;
     }    
+  }
+  
+  toggleInventory(){
+    const inventory = Sup.getActor("Inventory");
+    if(inventory.getVisible()){
+      inventory.setVisible(false);
+      this.frameInteraction = false;
+      Game.inventory.opened = false;
+    } else {
+      inventory.setVisible(true);
+      this.frameInteraction = true;
+    }
   }
 }
 Sup.registerBehavior(PlayerBehavior);

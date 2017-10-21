@@ -224,6 +224,21 @@
           "type": "any"
         }
       ]
+    },
+    "GameInventoryBehavior": {
+      "scriptId": "98",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "opened",
+          "type": "boolean"
+        },
+        {
+          "name": "load",
+          "type": "boolean"
+        }
+      ]
     }
   }
 }

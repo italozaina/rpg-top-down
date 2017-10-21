@@ -1,6 +1,7 @@
 namespace Game {
   export let player: PlayerBehavior;
   export let mouse: MouseBehavior;
+  export let inventory: GameInventoryBehavior;
   export let mapWidth: number;
   export let mapHeight: number;  
   export let dialogBehavior: DialogBehavior;
@@ -18,6 +19,10 @@ namespace Game {
     for(let i = 0; i < 50; i++){
       gameObjects.push(null);
     }
+    
+    for(let i = 0; i < Events.parts.length; i++){
+      Events.parts[i] = true;
+    }    
     Sup.log(gameObjects);
   }  
   

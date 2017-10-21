@@ -16,7 +16,11 @@ class WonGameObjDialogBehavior extends InteractableBehavior {
   }
 
   start(){
-    Game.getTileMap().setTileAt(3,this.actor.getLocalX(),this.actor.getLocalY(),583);
+    if(Events.parts[this.trigger]){
+      Game.getTileMap().setTileAt(3,this.actor.getLocalX(),this.actor.getLocalY(),583);  
+    } else {
+      Game.getTileMap().setTileAt(3,this.actor.getLocalX(),this.actor.getLocalY(),616);
+    }    
   }
 
   interact() {
