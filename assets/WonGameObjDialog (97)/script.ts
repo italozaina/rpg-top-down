@@ -63,10 +63,12 @@ class WonGameObjDialogBehavior extends InteractableBehavior {
 
   addInventory(){
     for(let i = 0; i < Game.gameObjects.length; i ++){
-      if(Game.gameObjects[i] == null){
+      if(Game.gameObjects[i].gameObject == null){
         Game.gameObjects[i] = {
           gameObject: this.getGameObject(), 
-          quantity: this.amount
+          quantity: this.amount,
+          active: false,
+          disabled: false
         };        
         break;
       }

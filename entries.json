@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 99,
+  "nextEntryId": 103,
   "nodes": [
     {
       "id": "92",
@@ -429,6 +429,18 @@
       "name": "Misc",
       "type": null,
       "children": [
+        {
+          "id": "99",
+          "name": "Lang",
+          "type": null,
+          "children": [
+            {
+              "id": "102",
+              "name": "TextDataEn",
+              "type": "script"
+            }
+          ]
+        },
         {
           "id": "84",
           "name": "Sound",

@@ -103,7 +103,7 @@ class PlayerBehavior extends Sup.Behavior {
     // }
     
     if(Sup.Input.wasKeyJustPressed("Z")){
-      if(Game.inventory.opened)
+      if(Game.inventory.opened && !Game.inventory.listActive)
         Game.player.toggleInventory();
       if(!Game.inventory.opened)
         Game.player.toggleMenu();

@@ -10,6 +10,50 @@
           "name": "Buttons",
           "children": [
             {
+              "id": "7",
+              "name": "Arrow_Buttons",
+              "children": [],
+              "components": [
+                {
+                  "type": "SpriteRenderer",
+                  "config": {
+                    "formatVersion": 1,
+                    "spriteAssetId": "76",
+                    "animationId": null,
+                    "horizontalFlip": false,
+                    "verticalFlip": false,
+                    "castShadow": false,
+                    "receiveShadow": false,
+                    "color": "ffffff",
+                    "overrideOpacity": false,
+                    "opacity": null,
+                    "materialType": "basic",
+                    "shaderAssetId": null
+                  },
+                  "id": "0"
+                }
+              ],
+              "position": {
+                "x": 3.844,
+                "y": 0.529,
+                "z": 0
+              },
+              "orientation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "scale": {
+                "x": 2,
+                "y": 2,
+                "z": 1
+              },
+              "visible": false,
+              "layer": 0,
+              "prefab": null
+            },
+            {
               "id": "4",
               "name": "Button1",
               "children": [],
@@ -19,10 +63,10 @@
                   "config": {
                     "formatVersion": 2,
                     "fontAssetId": "70",
-                    "text": "Add / Move",
+                    "text": "Use / Move / Drop",
                     "alignment": "center",
                     "verticalAlignment": "center",
-                    "size": 48,
+                    "size": 32,
                     "color": null,
                     "overrideOpacity": false,
                     "opacity": null
@@ -31,9 +75,9 @@
                 }
               ],
               "position": {
-                "x": 3.8438262939453125,
-                "y": 0.5772690773010254,
-                "z": 0
+                "x": 3.844,
+                "y": 0.577,
+                "z": 0.1
               },
               "orientation": {
                 "x": 0,
@@ -63,7 +107,7 @@
                     "text": "Organize",
                     "alignment": "center",
                     "verticalAlignment": "center",
-                    "size": 48,
+                    "size": 32,
                     "color": null,
                     "overrideOpacity": false,
                     "opacity": null
@@ -72,9 +116,9 @@
                 }
               ],
               "position": {
-                "x": 12.322351157665253,
-                "y": 0.5772690773010254,
-                "z": 0
+                "x": 13.58010333776474,
+                "y": 0.5770001411437988,
+                "z": 0.10000000149011612
               },
               "orientation": {
                 "x": 0,
@@ -101,10 +145,10 @@
                   "config": {
                     "formatVersion": 2,
                     "fontAssetId": "70",
-                    "text": "Back to menu",
+                    "text": "Back",
                     "alignment": "center",
                     "verticalAlignment": "center",
-                    "size": 48,
+                    "size": 32,
                     "color": null,
                     "overrideOpacity": false,
                     "opacity": null
@@ -113,9 +157,9 @@
                 }
               ],
               "position": {
-                "x": 21.566678047180176,
-                "y": 0.5772690773010254,
-                "z": 0
+                "x": 21.567,
+                "y": 0.577,
+                "z": 0.1
               },
               "orientation": {
                 "x": 0,
@@ -129,50 +173,6 @@
                 "z": 1
               },
               "visible": true,
-              "layer": 0,
-              "prefab": null
-            },
-            {
-              "id": "7",
-              "name": "Arrow_Buttons",
-              "children": [],
-              "components": [
-                {
-                  "type": "SpriteRenderer",
-                  "config": {
-                    "formatVersion": 1,
-                    "spriteAssetId": "83",
-                    "animationId": "10",
-                    "horizontalFlip": false,
-                    "verticalFlip": false,
-                    "castShadow": false,
-                    "receiveShadow": false,
-                    "color": "ffffff",
-                    "overrideOpacity": false,
-                    "opacity": null,
-                    "materialType": "basic",
-                    "shaderAssetId": null
-                  },
-                  "id": "0"
-                }
-              ],
-              "position": {
-                "x": 3.74151611328125,
-                "y": -0.19089698791503906,
-                "z": 0
-              },
-              "orientation": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 1
-              },
-              "scale": {
-                "x": 1,
-                "y": 1,
-                "z": 1
-              },
-              "visible": false,
               "layer": 0,
               "prefab": null
             }
@@ -221,7 +221,7 @@
           ],
           "position": {
             "x": -13.01620864868164,
-            "y": 4.389059066772461,
+            "y": 4.428676128387451,
             "z": 0
           },
           "orientation": {
@@ -283,7 +283,7 @@
                 "y": 1,
                 "z": 1
               },
-              "visible": true,
+              "visible": false,
               "layer": 0,
               "prefab": null
             }

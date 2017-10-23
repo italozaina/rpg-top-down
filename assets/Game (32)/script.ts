@@ -2,11 +2,12 @@ namespace Game {
   export let player: PlayerBehavior;
   export let mouse: MouseBehavior;
   export let inventory: GameInventoryBehavior;
+  export let TextData: any;
   export let mapWidth: number;
   export let mapHeight: number;  
   export let dialogBehavior: DialogBehavior;
   export let interactables: InteractableBehavior[];
-  export let gameObjects: {gameObject: GameObject, quantity: number}[];
+  export let gameObjects: {gameObject: GameObject, quantity: number, active: boolean, disabled: boolean}[];
   
   let mapRoot: Sup.Actor;
   let currentMap = "Start";    
@@ -17,7 +18,7 @@ namespace Game {
     Sup.loadScene("HUD/Prefab");
     gameObjects = [];
     for(let i = 0; i < 50; i++){
-      gameObjects.push(null);
+      gameObjects.push({gameObject:null, quantity: 0, active: false, disabled: false});
     }
     
     for(let i = 0; i < Events.parts.length; i++){
@@ -70,6 +71,5 @@ namespace Game {
   }  
 }
 
+Game.TextData = TextDataEn;
 Sup.loadScene("Main menu/Prefab");
-// Sup.loadScene("HUD/Prefab");
-// Game.loadMap("Map1");

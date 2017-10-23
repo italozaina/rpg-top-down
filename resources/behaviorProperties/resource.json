@@ -235,6 +235,10 @@
           "type": "boolean"
         },
         {
+          "name": "listActive",
+          "type": "boolean"
+        },
+        {
           "name": "load",
           "type": "boolean"
         }
