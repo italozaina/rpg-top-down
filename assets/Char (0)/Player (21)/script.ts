@@ -40,23 +40,23 @@ class PlayerBehavior extends Sup.Behavior {
 
     velocity.set(0, 0);
     
-    if(Sup.Input.isKeyDown("DOWN") && !this.frameInteraction){
+    if(Sup.Input.isKeyDown("DOWN") && !this.frameInteraction && !Game.inventory.listActive){
       this.direction = "D";
       this.idle = false;
       this.walk = true;      
       velocity.y = -0.05;
-    } else if(Sup.Input.isKeyDown("UP") && !this.frameInteraction){
+    } else if(Sup.Input.isKeyDown("UP") && !this.frameInteraction && !Game.inventory.listActive){
       this.direction = "U";
       this.idle = false;
       this.walk = true;      
       velocity.y = 0.05;
     } 
-    if(Sup.Input.isKeyDown("LEFT") && !this.frameInteraction){
+    if(Sup.Input.isKeyDown("LEFT") && !this.frameInteraction && !Game.inventory.listActive){
       this.direction = "L";
       this.idle = false;
       this.walk = true;
       velocity.x = -0.05;
-    } else if(Sup.Input.isKeyDown("RIGHT") && !this.frameInteraction){
+    } else if(Sup.Input.isKeyDown("RIGHT") && !this.frameInteraction && !Game.inventory.listActive){
       this.direction = "R";
       this.idle = false;
       this.walk = true;
@@ -67,15 +67,15 @@ class PlayerBehavior extends Sup.Behavior {
     //   velocity.normalize().multiplyScalar(0.05);
     // }
     
-    if(Sup.Input.isKeyDown("X") && !this.frameInteraction){
+    if(Sup.Input.isKeyDown("X") && !this.frameInteraction && !Game.inventory.listActive){
       this.atack = true;
     }
 
-    if(Sup.Input.isKeyDown("D") && !this.frameInteraction){
+    if(Sup.Input.isKeyDown("D") && !this.frameInteraction && !Game.inventory.listActive){
       this.die = true;
     }    
     
-    if(Sup.Input.wasKeyJustPressed("C") && !this.frameInteraction){
+    if(Sup.Input.wasKeyJustPressed("C") && !this.frameInteraction && !Game.inventory.listActive){
       if(this.typeWeapon != 3)
         this.typeWeapon++;
       else this.typeWeapon = 0;
@@ -115,7 +115,7 @@ class PlayerBehavior extends Sup.Behavior {
         || Sup.Input.wasKeyJustReleased("RIGHT")
         || Sup.Input.wasKeyJustReleased("X")
         || Sup.Input.wasKeyJustReleased("C")
-        || Sup.Input.wasKeyJustReleased("D")) && !this.frameInteraction){
+        || Sup.Input.wasKeyJustReleased("D")) && !this.frameInteraction && !Game.inventory.listActive){
       this.idle = true;
       this.walk = false;
       this.atack = false;

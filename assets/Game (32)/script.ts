@@ -17,14 +17,14 @@ namespace Game {
     currentMap = "Start";
     Sup.loadScene("HUD/Prefab");
     gameObjects = [];
-    for(let i = 0; i < 50; i++){
+    for(let i = 0; i < 45; i++){
       gameObjects.push({gameObject:null, quantity: 0, active: false, disabled: false});
     }
     
     for(let i = 0; i < Events.parts.length; i++){
       Events.parts[i] = true;
     }    
-    Sup.log(gameObjects);
+    // Sup.log(gameObjects);
   }  
   
   export function getTileMap(){

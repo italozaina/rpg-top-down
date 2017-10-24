@@ -20,24 +20,21 @@ class GameInventoryBehavior extends Sup.Behavior {
     this.arrow = Sup.getActor("Arrow_list");
     this.arrow2 = Sup.getActor("Arrow_Buttons");
     
-    this.choices = [new Menu("Add Move",true,false),
+    this.choices = [new Menu("Use/Move/Drop",true,false),
                     new Menu("Organize",false,false),
-                    new Menu("Equipment",false,false)];
+                    new Menu("Back",false,false)];
         
     this.choices.forEach((choice, index) => {      
       choice.actorName = this.inventory.getChild("Buttons").getChild("Button"+(index+1)).getName();
     });
-    Sup.log(this.choices);
+    
     this.descriptionTextRender.setText("");
-  }
-
-  start(){
-    this.loadGameObjects();    
   }
   
   update() {
     if(this.load){
-      this.loadGameObjects();      
+      this.createGaps();
+      this.loadGameObjectsByPage(0);
       this.load = false; 
       this.changeArrow();
     }  
@@ -68,53 +65,84 @@ class GameInventoryBehavior extends Sup.Behavior {
         this.descriptionTextRender.setText("");
         this.listActive = false;
         this.changeArrow();
-      }     
+      }  
+      
+      // Mouse control
+      let ray = new Sup.Math.Ray();
+      ray.setOrigin(0, 1, 2);
+      ray.setDirection(0, 0, 1);
+      ray.setFromCamera(Sup.getActor("Camera").camera, Sup.Input.getMousePosition());
+      let interactions = ray.intersectActors(this.inventory.getChild("Buttons").getChildren());
+
+      for (let interaction of interactions) {        
+        if(interaction.actor.getName() != "Arrow_Buttons"){
+          this.changeChoiceByMouse(this.choices, interaction.actor);
+          if(interaction.actor.getName() != "Button1"){
+            this.descriptionTextRender.setText("");
+            this.listActive = false;
+            this.changeArrow();
+          }
+          if(Sup.Input.wasMouseButtonJustReleased(0)){                        
+            this.action();        
+          }
+        }
+      }      
     }
     
     this.showDesc();
   }
   
-  loadGameObjects(){
+  createGaps(){
+    Game.gameObjects.forEach((gameObj, index)=>{
+      if(index == 0) gameObj.active = true
+      else gameObj.active = false;
+    });
     for(let i = 0; i < 15; i++){
-      if(i == 0) Game.gameObjects[i].active = true
-      else Game.gameObjects[i].active = false;
       let actorName = "Inventory_Gap_"+i;
       let actor = new Sup.Actor(actorName);
       actor.setParent(this.inventory.getChild("List"));
       new Sup.TextRenderer(actor);
-      actor.textRenderer.setFont("Fonts/Menu");
-      if(Game.gameObjects[i].gameObject != null){
-        actor.textRenderer.setText(Game.gameObjects[i].gameObject.getName());
-        let quantityActor = new Sup.Actor(actorName+"_Quantity");
-        quantityActor.setParent(actor);
-        new Sup.TextRenderer(quantityActor);
-        quantityActor.textRenderer.setFont("Fonts/Menu");
-        quantityActor.textRenderer.setText(": " +Game.gameObjects[i].quantity);
-        quantityActor.setLocalX(10);
-      }      
+      actor.textRenderer.setFont("Fonts/Menu");      
+      let quantityActor = new Sup.Actor(actorName+"_Quantity");
+      quantityActor.setParent(actor);
+      new Sup.TextRenderer(quantityActor);
+      quantityActor.textRenderer.setFont("Fonts/Menu");
+      quantityActor.setLocalX(10);      
       actor.textRenderer.setAlignment("left");
-      // if(choice.disabled){
-      //   actor.textRenderer.setColor(0.5,0.5,0.5);
-      // }
       actor.setLocalX(0.5);
       actor.setLocalY(-0.3 + (i * -0.7));
       actor.setLocalZ(1);      
     }    
   }
   
+  loadGameObjectsByPage(page: number){
+    for(let i = 0; i < 15; i++){
+      this.inventory.getChild("List").getChild("Inventory_Gap_" + i).textRenderer.setText("");
+      this.inventory.getChild("List").getChild("Inventory_Gap_" + i + "_Quantity").textRenderer.setText("");       
+      if(Game.gameObjects[page * 15 + i].gameObject != null){
+        this.inventory.getChild("List").getChild("Inventory_Gap_" + i)
+          .textRenderer.setText(Game.gameObjects[page * 15 + i].gameObject.getName());    
+        this.inventory.getChild("List").getChild("Inventory_Gap_" + i + "_Quantity")
+          .textRenderer.setText(": " +Game.gameObjects[page * 15 + i].quantity);
+      }
+    }    
+  }  
+  
   changeChoice(direction: string, menuArray: {gameObject: GameObject, quantity: number, active: boolean, disabled: boolean}[], actor: Sup.Actor){
     if(direction == "D"){
-      for(let i = 0; i < menuArray.length; i++){
-          if(menuArray[i].active){
+      for(let i = 0; i < menuArray.length; i++){          
+          if(menuArray[i].active){            
             if(i != menuArray.length-1) {
               for(let j = i+1; j < menuArray.length; j++){
                   if(!menuArray[j].disabled){
                     menuArray[j].active = true;
+                    if(j % 15 == 0 || j == 0) this.loadGameObjectsByPage(j / 15);
                     break;
                   }
               }              
-            } else {
+            } else {              
               menuArray[0].active = true;
+              this.loadGameObjectsByPage(0 / 15);
             }
             menuArray[i].active = false;
             break;
@@ -124,14 +152,16 @@ class GameInventoryBehavior extends Sup.Behavior {
       for(let i = menuArray.length-1; i >=0 ; i--){
           if(menuArray[i].active){
             if(i != 0) {
-              for(let j = i-1; j >= 0; j--){ // i = 3
+              for(let j = i-1; j >= 0; j--){
                   if(!menuArray[j].disabled){
                     menuArray[j].active = true;
+                    if(j % 15 == 14) this.loadGameObjectsByPage((j + 1) / 15 - 1);
                     break;
                   }
               }              
             } else {
               menuArray[menuArray.length-1].active = true;
+              this.loadGameObjectsByPage(menuArray.length / 15 - 1);
             }
             menuArray[i].active = false;
             break;
@@ -142,12 +172,11 @@ class GameInventoryBehavior extends Sup.Behavior {
     let selected: Sup.Actor;
     menuArray.forEach((choice, index) => {
       if(choice.active) {
-        selected = this.inventory.getChild("List").getChildren()[index+1];
+        selected = this.inventory.getChild("List").getChildren()[index%15+1];
         this.descriptionTextRender.setText("");
         this.description = this.getDescription(choice.gameObject);
-        this.descProgress = 0;
-      }
-      
+        this.descProgress = 0;                
+      }           
     });
     // this.arrow.setLocalX(actor.getLocalX());
     this.arrow.setLocalY(selected.getLocalY() - 0.05);    
@@ -200,6 +229,25 @@ class GameInventoryBehavior extends Sup.Behavior {
     Sup.Audio.playSound("Misc/Sound/Menu");
   }
   
+  changeChoiceByMouse(menuArray: Menu[], actor: Sup.Actor){
+      let option: Menu;
+      for(let i = 0; i < menuArray.length; i++){
+        if(menuArray[i].actorName == actor.getName()){
+          option = menuArray[i];
+        }
+      }
+      if(!option.active && !option.disabled){
+        menuArray.forEach((choice, index) => {
+          choice.active = false;
+        });
+        option.active = true;
+        // this.selector.setLocalX(actor.getParent().getLocalX());
+        this.arrow2.setLocalX(actor.getLocalX());
+        // this.arrow.setLocalY(actor.getLocalY() - 0.05);
+        Sup.Audio.playSound("Misc/Sound/Menu");
+      }      
+  }  
+  
   changeArrow(){
     if(this.listActive){
       this.arrow.setVisible(true);
@@ -220,7 +268,7 @@ class GameInventoryBehavior extends Sup.Behavior {
         // Sup.Audio.playSound("Misc/Sound/Menu_fail");
       }
     
-      // TODO Open Status view
+      // TODO Organize items
       if(this.choices[1].active){        
         Sup.Audio.playSound("Misc/Sound/Menu_fail");
       }

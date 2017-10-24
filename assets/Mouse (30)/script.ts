@@ -20,7 +20,7 @@ class MouseBehavior extends Sup.Behavior {
     mousePosition.x *= Sup.getActor("Camera").camera.getOrthographicScale() / 2 * screenSize.x / screenSize.y;
     mousePosition.y *= Sup.getActor("Camera").camera.getOrthographicScale() / 2;
     
-    //Offset camera correction
+    // Offset camera correction
     mousePosition.x += Sup.getActor("Camera").getX();
     mousePosition.y += Sup.getActor("Camera").getY();
         
@@ -51,8 +51,8 @@ class MouseBehavior extends Sup.Behavior {
       this.pressedMouseX = Math.floor(position.x / 10);        
     }
     
-    //TODO Open menu slide over the char
-    if(Sup.Input.wasMouseButtonJustReleased(0) && !Game.player.frameInteraction){
+    // Open menu slide over the char
+    if(Sup.Input.wasMouseButtonJustReleased(0) && !Game.player.frameInteraction && !Game.inventory.listActive){
       if(this.pressedMouseX < Game.player.position.x && Game.player.position.x < Math.floor(position.x / 10)){
         Sup.log("Opened Game Menu");
         walk = false;
@@ -76,14 +76,14 @@ class MouseBehavior extends Sup.Behavior {
       }
     }
     
-    //TODO Continue walk to reach coods
-    if(this.makeWalkX && !Game.player.frameInteraction){
+    // Continue walk to reach coods
+    if(this.makeWalkX && !Game.player.frameInteraction && !Game.inventory.listActive){
       let pX = Math.floor(this.cordToWalk.x / 10) * 10;
       let cX = Math.floor(Game.player.actor.getPosition().toVector2().multiplyScalar(10).x);
       if(pX == cX) {
         this.makeWalkX = false;    
         
-        //This fix float error
+        // This fix float error
         let pos = Game.player.actor.getPosition();
         pos.x = cX / 10; 
         Game.player.actor.arcadeBody2D.warpPosition(pos);
@@ -96,7 +96,7 @@ class MouseBehavior extends Sup.Behavior {
           Game.player.actor.arcadeBody2D.setVelocityX(0.05);
     }
     
-    if(this.makeWalkY && !Game.player.frameInteraction){
+    if(this.makeWalkY && !Game.player.frameInteraction && !Game.inventory.listActive){
       let pY = Math.floor(this.cordToWalk.y / 10) * 10;
       let cY = Math.floor(Game.player.actor.getPosition().toVector2().multiplyScalar(10).y);       
       if(pY == cY) {
@@ -109,7 +109,7 @@ class MouseBehavior extends Sup.Behavior {
           Game.player.actor.arcadeBody2D.setVelocityY(0.05);
     }      
     
-    //TODO stop animation
+    //stop animation
     if(!this.makeWalkX && !this.makeWalkY){
       Game.player.idle = true;
       Game.player.walk = false;      
@@ -155,7 +155,7 @@ class MouseBehavior extends Sup.Behavior {
       distY = Math.abs(pY - cY);
     }      
     // Sup.log(cX +" "+ pX+"\nDistX :"+distX+"\nDistY :"+distY);
-    //TODO set Direction to look
+    //set Direction to look
     if(distX > distY){
       if(pX < cX){
         //LEFT
@@ -173,7 +173,7 @@ class MouseBehavior extends Sup.Behavior {
         Game.player.direction = "U";
       }        
     }
-    //TODO start animation walk
+    //start animation walk
     Game.player.idle = false;
     Game.player.walk = true;    
   }
